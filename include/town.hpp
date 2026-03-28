@@ -1,6 +1,9 @@
 #pragma once
-#include "../External/GameFr/include/entities.hpp"
+#include "../include/custom_entities.hpp"
 
-class Town : public GameFr::Entity2D {
-	
+class Town : public EventTiedEntity{
+public:
+	uint32_t riches;
+	uint32_t policePresence;
+	void Update() override;
 };
