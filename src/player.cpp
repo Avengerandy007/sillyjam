@@ -28,6 +28,10 @@ void Player::PollKeys(){
 	}
 }
 
+void Player::ChangeHP(int amount){
+	this->health += amount;
+}
+
 void Player::Update(){
 	Move();
 	PollKeys();
