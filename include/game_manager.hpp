@@ -3,12 +3,14 @@
 #include "../include/globals.hpp"
 #include "../include/player.hpp"
 #include "../External/GameFr/include/camera.hpp"
+#include "town.hpp"
 #include <memory>
 
 class GameManager{
 	std::shared_ptr<Player> player;
 	std::shared_ptr<GameFr::Camera2D> cam;
 	std::shared_ptr<GameFr::EventQueue> eventQueue;
+	TownFactory townFactory;
 public:
 	GameManager();
 	void Init();

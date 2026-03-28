@@ -6,7 +6,7 @@ gamefr_include= \
 	-I./External/GameFr/include/util
 
 linux:
-	g++ $(gamefr_include) -I./include ./src/*.cpp ./External/GameFr/src/*.cpp ./External/GameFr/src/util/*.cpp -o build/silly -L$(ray_linx) -lraylib
+	g++ -g $(gamefr_include) -I./include ./src/*.cpp ./External/GameFr/src/*.cpp ./External/GameFr/src/util/*.cpp -o build/silly -L$(ray_linx) -lraylib
 
 windows:
-	g++ $(gamefr_include) -I./include ./src/*.cpp ./External/GameFr/src/*.cpp ./External/GameFr/src/util/*.cpp -o build/silly.exe -L$(ray_win) -lraylib -lopengl32 -lgdi32 -lwinmm -static -static-libgcc -static-libstdc++
+	g++ -g $(gamefr_include) -I./include ./src/*.cpp ./External/GameFr/src/*.cpp ./External/GameFr/src/util/*.cpp -o build/silly.exe -L$(ray_win) -lraylib -lopengl32 -lgdi32 -lwinmm -static -static-libgcc -static-libstdc++

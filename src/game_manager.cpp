@@ -5,11 +5,13 @@ GameManager::GameManager(){
 	cam = std::make_shared<GameFr::Camera2D>(GameFr::Camera2D::Modes::FOLLOW, player, SCREEN_SIZE_X, SCREEN_SIZE_Y);
 	eventQueue = std::make_shared<GameFr::EventQueue>();
 	player->AssignEssentials(cam, eventQueue);
+	townFactory.AssignEssentials(player, eventQueue, cam);
 }
 
 void GameManager::Init(){
 	InitWindow(SCREEN_SIZE_X, SCREEN_SIZE_Y, "silly");
 	SetTargetFPS(60);
+	townFactory.CreateTown();
 }
 
 void GameManager::Update(){
@@ -18,6 +20,7 @@ void GameManager::Update(){
 		
 		cam->Update();
 		player->Update();
+		townFactory.UpdateTowns();
 		
 		ClearBackground(BLACK);
 

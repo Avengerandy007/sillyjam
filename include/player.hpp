@@ -3,7 +3,6 @@
 
 class Player : public MovingEntity{
 	std::shared_ptr<GameFr::Camera2D> cam;
-
 	void Move() override;
 public:
 	void Update() override;
