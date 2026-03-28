@@ -1,4 +1,3 @@
-#include <iostream>
 #include "../include/player.hpp"
 
 void Player::Move(){
@@ -13,7 +12,6 @@ void Player::Move(){
 	}if (IsKeyDown(KEY_D)){
 		direction.X = 1;
 	}
-	std::clog << "Pushing with the following directions: " << direction.X << ", " << direction.Y << "\n";
 	Push(direction, speed);
 }
 
@@ -24,4 +22,17 @@ void Player::Update(){
 	if (onScreen){
 		DrawRectangle(renderingPosition.X - width / 2, renderingPosition.Y - height / 2, width, height, BLUE);
 	}
+}
+
+void Player::AssignEssentials(std::shared_ptr<GameFr::Camera2D> cam, std::shared_ptr<GameFr::EventQueue> queue){
+	this->cam = cam;
+	eventInterface.AssignQueue(queue);
+}
+
+
+Player::Player(GameFr::Vector2 position, uint32_t width, uint32_t height, float speed){
+	this->position = position;
+	this->width = width;
+	this->height = height;
+	this->speed = speed;
 }
