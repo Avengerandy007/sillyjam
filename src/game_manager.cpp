@@ -20,6 +20,7 @@ void GameManager::Update(){
 		
 		cam->Update();
 		player->Update();
+		townFactory.Update();
 		townFactory.UpdateTowns();
 		
 		ClearBackground(BLACK);

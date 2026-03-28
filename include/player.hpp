@@ -4,6 +4,7 @@
 class Player : public MovingEntity{
 	std::shared_ptr<GameFr::Camera2D> cam;
 	void Move() override;
+	void PollKeys();
 public:
 	void Update() override;
 	void AssignEssentials(std::shared_ptr<GameFr::Camera2D> cam, std::shared_ptr<GameFr::EventQueue> queue);

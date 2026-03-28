@@ -52,6 +52,7 @@ class Entity2D;
 	enum struct Event::Types{
 		COLLISION,
 		MOVEMENT,
+		ADD_TOWN,
 	};
 
 }

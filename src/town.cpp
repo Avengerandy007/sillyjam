@@ -28,6 +28,7 @@ void TownFactory::AssignEssentials(std::shared_ptr<Player> pl, std::shared_ptr<G
 	player = pl;
 	queue = q;
 	cam = camera;
+	eventInterface.AssignQueue(queue);
 }
 
 TownFactory::TownFactory() : random(0, 1){}
@@ -52,5 +53,12 @@ void TownFactory::CreateTown(){
 void TownFactory::UpdateTowns(){
 	for(std::shared_ptr<Town>& t : comuna){
 		t->Update();
+	}
+}
+
+void TownFactory::Update(){
+	std::shared_ptr<const GameFr::Event> ev = eventInterface.Listen(GameFr::Event::Types::ADD_TOWN);
+	if (ev){
+		CreateTown();
 	}
 }

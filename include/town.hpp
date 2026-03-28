@@ -18,10 +18,12 @@ class TownFactory{
 	std::shared_ptr<GameFr::EventQueue> queue;
 	std::shared_ptr<GameFr::Camera2D> cam;
 	std::shared_ptr<Player> player;
+	GameFr::EventInterface eventInterface;
 	GameFr::Randomizer random;
 public:
 	void AssignEssentials(std::shared_ptr<Player> pl, std::shared_ptr<GameFr::EventQueue> q, std::shared_ptr<GameFr::Camera2D> camera);
 	TownFactory();
 	void CreateTown();
 	void UpdateTowns();
+	void Update();
 };
