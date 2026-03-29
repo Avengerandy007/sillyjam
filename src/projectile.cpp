@@ -15,11 +15,11 @@ Projectile::Projectile(float acceleration, float speed, GameFr::Vector2 directio
 
 void Projectile::Update(){
     Move();
-    if(CollidingCircle(*Player, 1)){
-        Player->ChangeHP(PROJECTILE_DAMAGE);
+    if(CollidingCircle(*player, 1)){
+        player->ChangeHP(PROJECTILE_DAMAGE);
 
         GameFr::Util::EventDataPoint data(GameFr::Vector2(0, 0), {});
-        GameFr::Event ev(GameFr::Event::Types::COLLISION, GetPtr(), Player, data);
+        GameFr::Event ev(GameFr::Event::Types::COLLISION, GetPtr(), player, data);
         eventInterface.queue->CreateEvent(std::make_shared<const GameFr::Event>(ev));
     }
 }

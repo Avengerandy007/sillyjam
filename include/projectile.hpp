@@ -4,7 +4,7 @@
 
 class Projectile : public MovingEntity{
     float acceleration, projectileRadius;
-    std::shared_ptr<Player> Player;
+    std::shared_ptr<Player> player;
     void Move() override;
 
     protected:
