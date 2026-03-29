@@ -18,8 +18,7 @@ void Projectile::Update(){
     if(CollidingCircle(*player, 1)){
         player->ChangeHP(PROJECTILE_DAMAGE);
 
-        GameFr::Util::EventDataPoint data(GameFr::Vector2(0, 0), {});
-        GameFr::Event ev(GameFr::Event::Types::COLLISION, GetPtr(), player, data);
+        GameFr::Event ev(GameFr::Event::Types::COLLISION, GetPtr(), player, std::nullopt);
         eventInterface.queue->CreateEvent(std::make_shared<const GameFr::Event>(ev));
     }
 }

@@ -1,5 +1,5 @@
 #include "../include/player.hpp"
-#include <iostream>
+#include <optional>
 
 void Player::Move(){
 	direction.X = 0;
@@ -22,8 +22,7 @@ void Player::Move(){
 
 void Player::PollKeys(){
 	if (IsKeyPressed(KEY_T)){
-		GameFr::Util::EventDataPoint data(GameFr::Vector2(), {});
-		GameFr::Event ev(GameFr::Event::Types::ADD_TOWN, GetPtr(), nullptr, data);
+		GameFr::Event ev(GameFr::Event::Types::ADD_TOWN, GetPtr(), nullptr, std::nullopt);
 		eventInterface.queue->CreateEvent(std::make_shared<const GameFr::Event>(ev));
 	}
 }

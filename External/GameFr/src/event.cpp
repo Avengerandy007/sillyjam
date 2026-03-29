@@ -1,4 +1,5 @@
 #include "event.hpp"
+#include <memory>
 
 namespace Gf = GameFr;
 
@@ -6,7 +7,8 @@ Gf::Util::EventDataPoint::EventDataPoint(const Gf::Util::EventDataPoint& dataPoi
 
 Gf::Util::EventDataPoint::EventDataPoint(const Vector2& pos, const std::array<int, 10>& data) : additionalData(data), position(pos){}
 
-Gf::Event::Event(const Types t, const std::shared_ptr<const Entity2D> s, const std::shared_ptr<const Entity2D> r, const Util::EventDataPoint d) : type(t), sender(s), receiver(r), dataPoint(d){}
+Gf::Event::Event(const Types t, const std::shared_ptr<const Entity2D> s, const std::shared_ptr<const Entity2D> r, const std::optional<Util::EventDataPoint> d) : type(t), sender(s), receiver(r), dataPoint(d){}
+
 
 void Gf::EventQueue::CreateEvent(const std::shared_ptr<const Event>& event){
 	queue[qp.Value()] = event;

@@ -3,6 +3,7 @@
 #include <cstdint>
 #include "util/vectors.hpp"
 #include <memory>
+#include <optional>
 #include "util/SmartCounter.hpp"
 
 namespace GameFr{
@@ -22,8 +23,8 @@ class Entity2D;
 		const Types type;				//do I really need to explain this?
 		const std::shared_ptr<const Entity2D> sender; 	//object who created this
 		const std::shared_ptr<const Entity2D> receiver; //object for whom it's meant for
-		const Util::EventDataPoint dataPoint;		//additional data to send along
-		Event(const Types t, const std::shared_ptr<const Entity2D> s, const std::shared_ptr<const Entity2D> r, const Util::EventDataPoint d);
+		const std::optional<Util::EventDataPoint> dataPoint;		//additional data to send along
+		Event(const Types t, const std::shared_ptr<const Entity2D> s, const std::shared_ptr<const Entity2D> r, const std::optional<Util::EventDataPoint> d);
 	};
 
 	struct EventQueue{
