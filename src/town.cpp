@@ -20,7 +20,7 @@ void Town::Update(){
 	
 	GetRenderingPosition(*cam);
 	if (onScreen){
-		DrawRectangle(renderingPosition.X, renderingPosition.Y, width, height, RED);
+		DrawRectangle(renderingPosition.X - width / 2, renderingPosition.Y - height / 2, width, height, RED);
 	}
 }
 
@@ -37,9 +37,9 @@ void TownFactory::CreateTown(){
 	GameFr::Vector2 pos;
 	uint32_t riches, policePresence;
 
-	random.ChangeRange(player->position.X - 10, player->position.Y + 10);
+	random.ChangeRange(player->position.X - 100, player->position.X + 100);
 	pos.X = random.GetRandomNumber();
-	random.ChangeRange(player->position.Y - 10, player->position.Y + 10);
+	random.ChangeRange(player->position.Y - 100, player->position.Y + 100);
 	pos.Y = random.GetRandomNumber();
 
 	random.ChangeRange(100, 500);
